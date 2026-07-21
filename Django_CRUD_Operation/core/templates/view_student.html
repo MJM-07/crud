@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}View | Student Management System{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    {% for s in student %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+                    <h2 class="mb-0">Welcome, {{ s.full_name }}</h2>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+                        <strong>Full Name:</strong>
+                        <span class="float-end">{{ s.full_name }}</span>
+                    </div>
+                    <hr>
+
+                    <div class="mb-3">
+                        <strong>Student ID:</strong>
+                        <span class="float-end">{{ s.student_id }}</span>
+                    </div>
+                    <hr>
+
+                    <div class="mb-3">
+                        <strong>Department:</strong>
+                        <span class="float-end">{{ s.department }}</span>
+                    </div>
+                    <hr>
+
+                    <div class="mb-3">
+                        <strong>Date of Birth:</strong>
+                        <span class="float-end">{{ s.dob }}</span>
+                    </div>
+                    <hr>
+
+                    <div class="mb-3">
+                        <strong>Gender:</strong>
+                        <span class="float-end">{{ s.gender }}</span>
+                    </div>
+                    <hr>
+
+                    <div class="mb-3">
+                        <strong>Address:</strong>
+                        <span class="float-end">{{ s.address }}</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-8">
+
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">
+        Add New Student
+    </h2>
+
+    <form method="POST" class="space-y-6">
+        {% csrf_token %}
+
+        <!-- Student ID -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Student ID
+            </label>
+            <input
+                type="text"
+                name="student_id"
+                placeholder="Enter Student ID"
+                class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+            >
+        </div>
+
+        <!-- Full Name -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Full Name
+            </label>
+            <input
+                type="text"
+                name="full_name"
+                placeholder="Enter Full Name"
+                class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+            >
+        </div>
+
+        <!-- Department -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Department
+            </label>
+
+            <select
+                name="department"
+                class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+            >
+                <option value="">Select Department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Business Administration">Business Administration</option>
+            </select>
+        </div>
+
+        <!-- Date of Birth -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Date of Birth
+            </label>
+            <input
+                type="date"
+                name="dob"
+                class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+            >
+        </div>
+
+        <!-- Gender -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Gender
+            </label>
+
+            <div class="flex gap-6">
+                <label class="flex items-center gap-2">
+                    <input type="radio" name="gender" value="Male" required>
+                    Male
+                </label>
+
+                <label class="flex items-center gap-2">
+                    <input type="radio" name="gender" value="Female">
+                    Female
+                </label>
+
+                <label class="flex items-center gap-2">
+                    <input type="radio" name="gender" value="Other">
+                    Other
+                </label>
+            </div>
+        </div>
+
+        <!-- Address -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Address
+            </label>
+
+            <textarea
+                name="address"
+                rows="4"
+                placeholder="Enter Address"
+                class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
+                required
+            ></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-center gap-4 pt-4">
+            <button
+                type="submit"
+                class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition"
+            >
+                Save Student
+            </button>
+
+            <a
+                href="{% url 'all_student' %}"
+                class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition"
+            >
+                Cancel
+            </a>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

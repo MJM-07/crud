@@ -1,0 +1,23 @@
+ <header class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-white text-indigo-700 rounded-full flex items-center justify-center font-bold text-xl">
+          🎓
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold">Student Management System</h1>
+          <p class="text-sm text-indigo-200">Manage Students Efficiently</p>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex gap-8 font-medium">
+        <a href="{% url 'home' %}" class="hover:text-yellow-300 transition">Home</a>
+        <a href="{% url 'add_student' %}" class="hover:text-yellow-300 transition">Add Student</a>
+        <a href="{% url 'all_student' %}" class="hover:text-yellow-300 transition">All Student</a>
+      </nav>
+
+    </div>
+  </header>

@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Student{% endblock %}
+
+{% block content %}
+
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-8">
+
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">
+        Update Student
+    </h2>
+
+    <form method="POST" class="space-y-6">
+        {% csrf_token %}
+
+        <!-- Student ID -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Student ID
+            </label>
+
+            <input
+                type="text"
+                value="{{ student.student_id }}"
+                name="student_id"
+                class="w-full px-4 py-3 border rounded-lg"
+                required
+            >
+        </div>
+
+
+        <!-- Full Name -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                value="{{ student.full_name }}"
+                name="full_name"
+                class="w-full px-4 py-3 border rounded-lg"
+                required
+            >
+        </div>
+
+
+        <!-- Department -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Department
+            </label>
+
+            <select name="department" class="w-full px-4 py-3 border rounded-lg" required>
+
+                <option value="Computer Science"
+                {% if student.department == "Computer Science" %}selected{% endif %}>
+                    Computer Science
+                </option>
+
+                <option value="Software Engineering"
+                {% if student.department == "Software Engineering" %}selected{% endif %}>
+                    Software Engineering
+                </option>
+
+                <option value="Information Technology"
+                {% if student.department == "Information Technology" %}selected{% endif %}>
+                    Information Technology
+                </option>
+
+                <option value="Electrical Engineering"
+                {% if student.department == "Electrical Engineering" %}selected{% endif %}>
+                    Electrical Engineering
+                </option>
+
+                <option value="Business Administration"
+                {% if student.department == "Business Administration" %}selected{% endif %}>
+                    Business Administration
+                </option>
+
+            </select>
+        </div>
+
+
+        <!-- Date of Birth -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Date of Birth
+            </label>
+
+            <input
+                type="date"
+                name="dob"
+                value="{{ student.dob|date:'Y-m-d' }}"
+                class="w-full px-4 py-3 border rounded-lg"
+                required
+            >
+        </div>
+
+
+        <!-- Gender -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Gender
+            </label>
+
+            <div class="flex gap-6">
+
+                <label>
+                    <input 
+                    type="radio" 
+                    name="gender" 
+                    value="Male"
+                    {% if student.gender == "Male" %}checked{% endif %}
+                    >
+                    Male
+                </label>
+
+
+                <label>
+                    <input 
+                    type="radio" 
+                    name="gender" 
+                    value="Female"
+                    {% if student.gender == "Female" %}checked{% endif %}
+                    >
+                    Female
+                </label>
+
+
+                <label>
+                    <input 
+                    type="radio" 
+                    name="gender" 
+                    value="Other"
+                    {% if student.gender == "Other" %}checked{% endif %}
+                    >
+                    Other
+                </label>
+
+            </div>
+        </div>
+
+
+        <!-- Address -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">
+                Address
+            </label>
+
+            <textarea
+                name="address"
+                rows="4"
+                class="w-full px-4 py-3 border rounded-lg"
+                required
+            >{{ student.address }}</textarea>
+
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="flex justify-center gap-4 pt-4">
+
+            <button
+                type="submit"
+                class="bg-blue-700 text-white px-6 py-3 rounded-lg"
+            >
+                Update Student
+            </button>
+
+
+            <a
+                href="{% url 'all_student' %}"
+                class="bg-gray-500 text-white px-6 py-3 rounded-lg"
+            >
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
